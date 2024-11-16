@@ -51,7 +51,7 @@ $$
 
 > - $\mathcal X$ is the set of all possible values for the random variable $X$.
 > - $X$ is the random variable itself.
-> - $x$ is a specific outcome or value from the set $\underline X$.
+> - $x$ is a specific outcome or value from the set $\mathcal X$.
 
 For example, if $X$ is a binary random variable:
 
