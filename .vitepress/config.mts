@@ -18,12 +18,14 @@ export default defineConfig({
       { text: "Week 4", link: "/week-4" },
       { text: "Week 5", link: "/week-5" },
     ],
-
     socialLinks: [
       { icon: "gitlab", link: "https://gitlab.com/noClaps/it-notes" },
     ],
     search: {
       provider: "local",
+    },
+    outline: {
+      level: [2, 3],
     },
   },
 });
