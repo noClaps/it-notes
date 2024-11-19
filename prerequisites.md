@@ -82,3 +82,13 @@ P(X = x, Y=y) = P(X=x) P(Y=x)
 $$
 
 This factorisation property is key for working with joint distributions.
+
+## Union bound
+
+The **union bound**, also known as Boole's inequality, states that for any finite or countable set of events $\{ A_1, A_2, ..., A_n \}$, the probability of the union is less than or equal to the sum of their individual probabilities:
+
+$$
+P(A_1 \space\cup\space A_2 \space\cup\space ... \space\cup\space A_n) \le \sum_i P(A_i)
+$$
+
+In simpler terms, the probability of at least one event occurring is less than or equal to the sum of the probabilities of each event occurring individually. It's useful in information theory for error analysis, bounding failure probabilities in communication systems, analysing the probability of decoding errors and deriving achievability bounds. This bound is especially valuable because it's simple to apply, often gives useful results even though it's not always tight, and is valid regardless of whether the events are independent.
