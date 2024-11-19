@@ -5,6 +5,7 @@ export default defineConfig({
   markdown: {
     math: true,
   },
+  cleanUrls: true,
 
   title: "Information Theory Notes",
   description: "Information Theory Notes",
