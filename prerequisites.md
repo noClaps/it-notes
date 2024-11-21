@@ -92,3 +92,17 @@ P(A_1 \space\cup\space A_2 \space\cup\space ... \space\cup\space A_n) \le \sum_i
 $$
 
 In simpler terms, the probability of at least one event occurring is less than or equal to the sum of the probabilities of each event occurring individually. It's useful in information theory for error analysis, bounding failure probabilities in communication systems, analysing the probability of decoding errors and deriving achievability bounds. This bound is especially valuable because it's simple to apply, often gives useful results even though it's not always tight, and is valid regardless of whether the events are independent.
+
+## Markov's inequality
+
+Markov's inequality states that for a non-negative random variable $X$ and a positive real number $a$:
+
+$$
+\Pr(X \ge a) \le \frac {\mathbb E(X)}a
+$$
+
+where $\Pr(X \ge a)$ is the probability that $X$ is greater than or equal to $a$, and $\mathbb E(X)$ is the expected value of $X$.
+
+This inequality is particularly useful because it provides an upper bound on the probability that a random variable takes values far from its mean. It also works for any non-negative random variable, regardless of its distribution, and it only requires knowledge of the expected value. For example, if we have a random variable with mean 10, the probability of it being $\ge 50$ is at most $\frac{10}{50} = 0.2$ or 20%.
+
+In information theory, Markov's inequality is often used to analyse convergence properties of random processes, prove concentration inequalities, derive bounds on error probabilities in coding theorems and study the behavior of information measures.
