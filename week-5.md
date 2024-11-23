@@ -32,7 +32,7 @@ The beauty of this system is how it handles errors.
 A real world example would be something like sending a text message through a noisy channel. Let's say our original message is "HELLO_WORLD".
 
 1. Outer encoding (Reed-Solomon): This will add some protection, let's say it turns "HELLO_WORLD" into "HELLO_WORLD_PROTECT".
-2. Inner encoding (small random codes): This will break it into chunks ("HEL", "LO_", "WOR", "LD_", "PRO", "TEC", "T"). Each chunk then gets its own random encoding.
+2. Inner encoding (small random codes): This will break it into chunks ("HEL", "LO*", "WOR", "LD*", "PRO", "TEC", "T"). Each chunk then gets its own random encoding.
 
 If noise corrupts some parts, like let's say "WOR" gets corrupted, the inner code will try to decode each chunk, and even if the "WOR" chunk is decoded incorrectly, the Reed-Solomon will most likely fix it.
 
@@ -127,3 +127,158 @@ For example, let's say we have a string of bits: 1101001. If $D = 0.1$, we allow
 
 The practical implications of this come in real compression systems. In lossy image formats like JPEG, the trade-off is between file size and image quality, while in lossy audio formats like MP3, the trade-off is between file size and audio quality. Video codec have the same trade-off, between file size and video quality.
 Ω
+
+## Source-Channel Separation Theorem
+
+This is a fundamental result about whether we should compress first, then add error protection (separate), or do both operations together (joint).
+
+We can think of it packing and shipping a collection of books. There are two possible approaches here:
+
+- **Separate**: First compress the books (source coding), then pack them securely for shipping (channel coding).
+- **Joint**: Do both operations together in some clever way.
+
+The surprising result is that doing it separately is just as good as any joint scheme.
+
+Mathematically, for a source $W$, channel capacity $C$, and alphabet $V$, if $\frac{\log(|V|)}{H(W)} < C$, reliable communication is possible with:
+
+$$
+P_e \le 2^{-nE} \text{ for some } E > 0
+$$
+
+Proof:
+
+1. Source coding: Compress the source to $H(W)+\epsilon$ bits per symbol. The error probability for this is $2^{-n_1}$.
+2. Channel coding: Use capacity-achieving code. The error probability for this is $2^{-n_2}$.
+3. Overall system: The total error is $2^{-n_1} + 2^{-n_2}$, and the rate required is $\frac{H(W)}C + \epsilon$.
+
+Conversely, if $\frac{\log(|V|)}{H(W)} > C$, then for any code:
+
+$$
+P_e \ge c > 0 \text{ for some constant }c
+$$
+
+Proof: Using Fano's inequality:
+
+$$
+H(W|\hat W) \le n P_e \log(|V|) + 1
+$$
+
+combined with data processing:
+
+$$
+I(W; \hat W) \le nC
+$$
+
+leads to:
+
+$$
+H(W) \le nP_e \log(|V|) + 1 + nC
+$$
+
+Let's try to explain this with a concrete example. We can imagine sending photos through a noisy channel. First, we compress the photo (like JPEG), then add error protection (like Reed-Solomon codes). This works because source coding gets rid of redundancy, while channel coding adds back controlled redundancy, and so the theorem says that this is optimal.
+
+The practical implications of this are that we can design source coders (like JPEG) and channel coders (like WiFi codes) independently, and we don't need to worry about their interactions.
+
+Key points:
+
+- If our channel can handle more bits than our source needs ($\frac{\log(|V|)}{H(W)} < C$), we can communicate reliably.
+- If our channel can't handle the required bits ($\frac{\log(|V|)}{H(W)} > C$), no scheme will work reliably.
+- The separation approach achieves the best possible performance.
+
+> Important note: this theorem only works for point-to-point communication. In networks (like broadcasting to multiple receivers), joint source-channel coding can be better.
+
+## Kraft Inequality
+
+The Kraft Inequality is about prefix codes – these are codes where no codeword is a prefix of another codeword. This property is super important because it lets us decode messages instantly, without waiting for more symbols.
+
+Examples of prefix code:
+
+```
+A -> 0
+B -> 10
+C -> 110
+D -> 111
+```
+
+Not a prefix code:
+
+```
+A -> 0
+B -> 00
+C -> 001 (because '0' is a prefix of '00' and '001')
+```
+
+The Kraft Inequality states that for any $D$-ary prefix code ($D$ is the alphabet size, usually 2 for binary), with codeword lengths $l_1, l_2, ..., l_n$:
+
+$$
+\sum_i D^{-l_i} \le 1
+$$
+
+For our example above with $D=2$:
+
+$$
+2^{-1} + 2^{-2} + 2^{-3} + 2^{-3} = 0.5 + 0.25 + 0.125 + 0.125 = 1
+$$
+
+The amazing thing is this inequality gives us a necessary condition for prefix codes to exist, a sufficient condition – if lengths satisfy this inequality then we can always construct a prefix code using these lengths, and a way to think about optimal code lengths.
+
+## Huffman codes
+
+The basic idea of Huffman coding is to use shorter codewords for frequent symbols, and longer codewords for rarer symbols.
+
+We can see how this works with an example. Let's say we have text with these frequencies:
+
+```
+A = 0.4 (most common)
+B = 0.3
+C = 0.2
+D = 0.1 (least common)
+```
+
+How Huffman coding works:
+
+1. Start with all the symbols and their probabilities.
+2. Find the two least probable symbols.
+3. Combine them into a new node with the sum of their probabilities.
+4. Repeat until we have one node.
+
+Visually, it looks like this:
+
+<svg style="background-color: white;" viewBox="0 0 500 250">
+  <!-- Root -->
+  <text x="190" y="50" text-anchor="middle">1.0</text>
+
+  <!-- Level 1 -->
+  <line x1="200" y1="60" x2="100" y2="100" stroke="black"/>
+  <line x1="200" y1="60" x2="300" y2="100" stroke="black"/>
+  <text x="80" y="110" text-anchor="middle">0.4 (A)</text>
+  <text x="320" y="110" text-anchor="middle">0.6</text>
+
+  <!-- Level 2 -->
+  <line x1="300" y1="110" x2="250" y2="150" stroke="black"/>
+  <line x1="300" y1="110" x2="350" y2="150" stroke="black"/>
+  <text x="240" y="160" text-anchor="middle">0.3 (B)</text>
+  <text x="360" y="160" text-anchor="middle">0.3</text>
+
+  <!-- Level 3 -->
+  <line x1="350" y1="160" x2="320" y2="200" stroke="black"/>
+  <line x1="350" y1="160" x2="380" y2="200" stroke="black"/>
+  <text x="310" y="210" text-anchor="middle">0.2 (C)</text>
+  <text x="390" y="210" text-anchor="middle">0.1 (D)</text>
+</svg>
+
+This gives us the codewords:
+
+```
+A: 0 (most frequent – shortest code)
+B: 10
+C: 110
+D: 111 (least frequent – longest code)
+```
+
+The beauty of Huffman codes is that they are prefix codes (satisfy [Kraft Inequality](#kraft-inequality)), optimal (no other prefix code can do better) and easy to construct.
+
+For example, if we encode "ABACABAD":
+
+- Without Huffman: $8 \times 2 = 16 \text{ bits}$ (using fixed 2 bits per symbol)
+- With Huffman: $0|10|0|110|0|10|0|111 = 13 \text{ bits}$.
