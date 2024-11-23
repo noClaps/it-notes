@@ -281,4 +281,4 @@ The beauty of Huffman codes is that they are prefix codes (satisfy [Kraft Inequa
 For example, if we encode "ABACABAD":
 
 - Without Huffman: $8 \times 2 = 16 \text{ bits}$ (using fixed 2 bits per symbol)
-- With Huffman: $0|10|0|110|0|10|0|111 = 13 \text{ bits}$.
+- With Huffman: $0|10|0|110|0|10|0|111 = 14 \text{ bits}$.
