@@ -31,10 +31,10 @@ The beauty of this system is how it handles errors.
 
 A real world example would be something like sending a text message through a noisy channel. Let's say our original message is "HELLO_WORLD".
 
-1. Outer encoding (Reed-Solomon): This will add some protection, let's say it turns "HELLO_WORLD" into "HELLO_WORLD_PROTECT".
-2. Inner encoding (small random codes): This will break it into chunks ("HEL", "LO*", "WOR", "LD*", "PRO", "TEC", "T"). Each chunk then gets its own random encoding.
+1. Outer encoding (Reed-Solomon): This will add some protection, let's say it turns `HELLO_WORLD` into `HELLO_WORLD_PROTECT`.
+2. Inner encoding (small random codes): This will break it into chunks (`HEL`, `LO_`, `WOR`, `LD_`, `PRO`, `TEC`, `T`). Each chunk then gets its own random encoding.
 
-If noise corrupts some parts, like let's say "WOR" gets corrupted, the inner code will try to decode each chunk, and even if the "WOR" chunk is decoded incorrectly, the Reed-Solomon will most likely fix it.
+If noise corrupts some parts, like let's say `WOR` gets corrupted, the inner code will try to decode each chunk, and even if the `WOR` chunk is decoded incorrectly, the Reed-Solomon will most likely fix it.
 
 The advantages of this approach are that, by breaking the message into small chunks, we make the computational manageable, and we don't need a supercomputer to encode/decode. It gets fairly good performance, it gets close to the theoretical limit, and has strong error correction capabilities.
 
