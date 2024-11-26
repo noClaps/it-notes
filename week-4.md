@@ -217,7 +217,9 @@ probability of error bounded away from zero. What this means is if we're trying
 to send information at a rate higher than $1-p$, then we're guaranteed to have
 errors, regardless of how clever our code is.
 
-> [!note] I don't know what the inequalities are to prove this, they're
+> [!note]
+>
+> I don't know what the inequalities are to prove this, they're
 > somewhere in the (handwritten?) notes, so you'd have to check that for
 > yourself.
 
@@ -320,7 +322,9 @@ probability of error bounded away from zero. What this means is that if we're
 trying to send information at a rate faster than $1 - H(p)$ then we're
 guaranteed to have errors, regardless of how clever our code is.
 
-> [!note] I don't know what the inequalities are to prove this, they're
+> [!note]
+>
+> I don't know what the inequalities are to prove this, they're
 > somewhere in the (handwritten?) notes, so you'd have to check that for
 > yourself.
 
@@ -346,7 +350,9 @@ It is the input distribution that achieves the maximum channel capacity. It's
 like finding the optimal settings for an experiment. For BSC, it turns out that
 a uniform distribution is optimal, while for other channels this could vary.
 
-> [!note] I was curious why the uniform distribution was optimal if it maximised
+> [!note]
+>
+> I was curious why the uniform distribution was optimal if it maximised
 > entropy, which would in turn minimise the channel capacity, so I asked Claude
 > about it. Here is its response, rewritten by me:
 >

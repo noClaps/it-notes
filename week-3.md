@@ -403,7 +403,9 @@ x + 3y &= 4 \\
 \end{align}
 $$
 
-> [!note] I discovered this on my own while trying to solve the problem Claude
+> [!note]
+>
+> I discovered this on my own while trying to solve the problem Claude
 > was giving me. Turns out you can't solve some problems in finite fields that
 > work in $\mathbb R$ or $\mathbb C$.
 

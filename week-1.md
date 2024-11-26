@@ -172,7 +172,9 @@ binary vector $\underline x = [0, 1, 1, 0, 1]$ of length $n = 5$.
      $|\mathcal T(\underline x)| \approx 2^{5 \times 0.971} \approx 29$.
      However, the true value is ${5 \choose 3} = 10$.
 
-> [!danger] WAT The approximation doesn't work.
+> [!danger] WAT
+>
+> The approximation doesn't work.
 
 ## Probability of type
 

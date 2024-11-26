@@ -786,8 +786,9 @@ so the uncertainty of $X$ given $Y$ is less than the uncertainty of $X$ alone.
 
 ## Convexity/concavity inequalities
 
-> [!danger] WAT I'm gonna be honest I have no clue what anything in this section
-> means.
+> [!danger] WAT
+>
+> I'm gonna be honest I have no clue what anything in this section means.
 
 For a function $y = f(x)$, the gradient $\frac {dy}{dx}$ of a **concave
 function** _decreases_ as $x$ increases. An example of a concave function is
