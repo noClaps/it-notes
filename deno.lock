@@ -2,7 +2,8 @@
   "version": "4",
   "specifiers": {
     "npm:markdown-it-mathjax3@^4.3.2": "4.3.2",
-    "npm:vitepress@^1.5.0": "1.5.0_markdown-it-mathjax3@4.3.2_vite@5.4.11_vue@3.5.13_focus-trap@7.6.2"
+    "npm:vitepress@*": "1.5.0_vite@5.4.11_vue@3.5.13_focus-trap@7.6.2",
+    "npm:vitepress@^1.5.0": "1.5.0_vite@5.4.11_vue@3.5.13_focus-trap@7.6.2"
   },
   "npm": {
     "@algolia/autocomplete-core@1.17.7_algoliasearch@5.15.0": {
@@ -1054,7 +1055,7 @@
         "rollup"
       ]
     },
-    "vitepress@1.5.0_markdown-it-mathjax3@4.3.2_vite@5.4.11_vue@3.5.13_focus-trap@7.6.2": {
+    "vitepress@1.5.0_vite@5.4.11_vue@3.5.13_focus-trap@7.6.2": {
       "integrity": "sha512-q4Q/G2zjvynvizdB3/bupdYkCJe2umSAMv9Ju4d92E6/NXJ59z70xB0q5p/4lpRyAwflDsbwy1mLV9Q5+nlB+g==",
       "dependencies": [
         "@docsearch/css",
@@ -1071,7 +1072,6 @@
         "@vueuse/integrations",
         "focus-trap",
         "mark.js",
-        "markdown-it-mathjax3",
         "minisearch",
         "shiki",
         "vite",
