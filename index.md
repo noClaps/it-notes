@@ -27,6 +27,7 @@
 >   (consecutive) subset of its components, say
 >   $X_i, X_{i+1}, ..., X_{j-1}, X_j$, we denote this as $X_i^j$. By convention,
 >   $X^n$ should be taken as meaning $X_1^n$.
+> - "iff" means "if and only if"
 
 Table of Contents:
 
