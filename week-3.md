@@ -288,13 +288,21 @@ There are two main ways to find the multiplicative inverses:
    original irreducible polynomial ($x^4 + x + 1$ for $\mathbb F_{16}$). For
    example, if we want to find the multiplicative inverse of $x^3 + x + 1$:
 
-   1. Divide $x^4 + x + 1$ by $x^3 + x + 1$: $$
+   1. Divide $x^4 + x + 1$ by $x^3 + x + 1$:
+
+      $$
       x^4 + x + 1 = x(x^3 + x + 1) + (x^2 + 1)
       $$
-   2. Divide $x^3 + x + 1$ by $x^2 + 1$: $$
+
+   2. Divide $x^3 + x + 1$ by $x^2 + 1$:
+
+      $$
       x^3 + x + 1 = x(x^2 + 1) + 1
       $$
-   3. Since the remainder is now 1, we're done. Working backwards: $$
+
+   3. Since the remainder is now 1, we're done. Working backwards:
+
+      $$
       \begin{align}
       1 &= (x^3 + x + 1) - x(x^2 + 1) \\
       &= (x^3 + x + 1) - x((x^4 + x + 1) - x(x^3 + x + 1)) \\
