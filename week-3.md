@@ -587,9 +587,7 @@ correct less than $\frac d 2$ errors.
 
 ## Linear codes
 
-A linear code multiplies our message $\underline m$ with an $n \times k$
- **generator matrix** to generate the codeword $\underline x$. For example, in
-$\mathbb F_2$, we can have a generator matrix:
+A linear code multiplies our message $\underline m$ with an $n \times k$ **generator matrix** to generate the codeword $\underline x$. For example, in $\mathbb F_2$, we can have a generator matrix:
 
 $$
 G = \begin{bmatrix}
