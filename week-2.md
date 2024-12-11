@@ -800,7 +800,7 @@ $x$ increases.
 For a concave function $f(\cdot)$:
 
 $$
-\sum_{i=1}^k \lambda_i f(\underline x_1) \le f \left( \sum_{i=1}^k \lambda_i \underline x_i \right)
+\sum_{i=1}^k \lambda_i f(\underline x_i) \le f \left( \sum_{i=1}^k \lambda_i \underline x_i \right)
 $$
 
 for $k$ vectors: $\underline x_1$, $\underline x_2$, ..., $\underline x_k$ in
