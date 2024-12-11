@@ -661,7 +661,7 @@ temperature.
 ### Chain rule for entropy
 
 $$
-H(X_1^n) = H(X_1) + \sum_{i=2}^2 H(X_i|X_1^{i-1})
+H(X_1^n) = H(X_1) + \sum_{i=2}^n H(X_i|X_1^{i-1})
 $$
 
 We can think of this as being in a multi-particle system, and we're adding
