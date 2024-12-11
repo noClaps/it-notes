@@ -713,7 +713,7 @@ $$
 H(X) \le \log(|\mathcal X|)
 $$
 
-with equality if $p_X() = \frac 1 {|\mathcal X|}$ for all $i \in \mathcal X$.
+with equality if $p_X(i) = \frac 1 {|\mathcal X|}$ for all $i \in \mathcal X$.
 This means that $H(X) = \log(|\mathcal X|)$ if all probabilities are equal for
 all outcomes. This is maximum entropy, since the distribution doesn't favor any
 particular outcome. If there were any bias in the distribution, entropy would be
