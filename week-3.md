@@ -645,7 +645,7 @@ $\underline m = \begin{bmatrix} m_1 & m_2 & m_3 & m_4 \end{bmatrix}$ and
 converts it into a 7-bit codeword. It does so by adding 3 parity bits
 $\begin{bmatrix} p_1 & p_2 & p_3 \end{bmatrix}$ to get a codeword
 $\underline x = \begin{bmatrix} p_1 & p_2 & m_1 & p_3 & m_2 & m_3 & m_4 \end{bmatrix}$.
-The parity bits are chose so:
+The parity bits are chosen so:
 
 $$
 \begin{align}
