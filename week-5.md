@@ -77,7 +77,7 @@ sophisticated decoding algorithms.
 
 Going into some of the maths, we start with some fundamental parameters:
 
-- Rate: $R = 1 + H(p) - \epsilon$ where $\epsilon > 0$ is small. The small
+- Rate: $R = 1 - H(p) - \epsilon$ where $\epsilon > 0$ is small. The small
   $\epsilon$ represents how far we are from perfect efficiency.
 - Message length: $nR$ bits
 - Inner code block length: $\log(n)$
