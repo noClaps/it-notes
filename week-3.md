@@ -591,23 +591,28 @@ A linear code multiplies our message $\underline m$ with an $n \times k$ **gener
 
 $$
 G = \begin{bmatrix}
-1 & 0 & 1 & 1 \\
-0 & 1 & 1 & 0
+1 & 0 \\
+0 & 1 \\
+1 & 1 \\
+1 & 0
 \end{bmatrix}
 $$
 
-and a message $\underline m = \begin{bmatrix}1 & 0\end{bmatrix}$. This gives us
+and a message $\underline m = \begin{bmatrix}1 \\ 0\end{bmatrix}$. This gives us
 a codeword:
 
 $$
 \begin{align}
-\underline x &= \underline mG \\
+\underline x &= G\underline m \\
 &= \begin{bmatrix}
+1 & 0 \\
+0 & 1 \\
+1 & 1 \\
 1 & 0
 \end{bmatrix} \begin{bmatrix}
-1 & 0 & 1 & 1 \\
-0 & 1 & 1 & 0
-\end{bmatrix} \\
+1 \\
+0
+\end{bmatrix}  \\
 &= \begin{bmatrix}
 (1 \times 1) + (0 \times 0) & (1 \times 0) + (0 \times 1) & (1 \times 1) + (0 \times 1) & (1 \times 1) + (0 \times 0)
 \end{bmatrix} \\
