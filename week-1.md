@@ -390,7 +390,7 @@ We can think of this like finding the smallest region in phase space that
 contains almost all possible states of a system. In this case, $\mathcal B$ is
 the smallest set of binary strings that contains almost all likely outcomes. The
 size of this set is approximately 2 raised to the power of
-$(nH(p) = n \epsilon \log\left( \frac 2 \epsilon \right))$, where $H(p)$ is the
+$(nH(p) + n \epsilon \log\left( \frac 2 \epsilon \right))$, where $H(p)$ is the
 entropy.
 
 $\mathcal B$ is a subset of all the possible binary strings of length $n$. For
