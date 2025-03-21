@@ -20,7 +20,7 @@ export default defineConfig({
       { text: "Week 5", link: "/week-5" },
     ],
     socialLinks: [
-      { icon: "gitlab", link: "https://gitlab.com/noClaps/it-notes" },
+      { icon: "github", link: "https://github.com/noClaps/it-notes" },
     ],
     search: {
       provider: "local",
