@@ -3,8 +3,8 @@
   "workspaces": {
     "": {
       "devDependencies": {
-        "markdown-it-mathjax3": "^4.3.2",
-        "vitepress": "^1.6.3",
+        "markdown-it-mathjax3": "latest",
+        "vitepress": "latest",
       },
     },
   },
